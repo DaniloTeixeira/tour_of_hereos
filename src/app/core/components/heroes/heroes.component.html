@@ -1,0 +1,27 @@
+<div class="heroes-container">
+  <mat-table
+    [dataSource]="heroes"
+    class="mat-elevation-z8"
+    style="margin: 20px; width: 700px"
+  >
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> NOME </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      [routerLink]="['/hero', row.id]"
+    ></mat-row>
+  </mat-table>
+
+  <mat-card class="message-card mat-elevation-z8">
+    <app-message></app-message>
+  </mat-card>
+</div>

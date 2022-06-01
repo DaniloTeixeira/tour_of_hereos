@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="d-flex justify-content-between">
+  <a routerLink="/">
+    {{ title | uppercase }}
+  </a>
+  <div class="d-flex">
+    <div *ngFor="let item of menuItems" class="mx-2">
+      <a
+        aria-label="item.toolTipText"
+        [matTooltip]="item.toolTipText"
+        [routerLink]="item.routerLink"
+      >
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </a>
+    </div>
+  </div>
+</mat-toolbar>
