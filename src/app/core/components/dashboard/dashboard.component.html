@@ -1,0 +1,13 @@
+<div class="m-5">
+  <h2 class="ms-2">Dashboard</h2>
+
+  <mat-card
+    class="m-2"
+    color="accent"
+    style="width: 400px; cursor: pointer"
+    *ngFor="let hero of heroes"
+    [routerLink]="['/hero', hero.id]"
+  >
+    <mat-card-title>{{ hero.name }}</mat-card-title>
+  </mat-card>
+</div>
