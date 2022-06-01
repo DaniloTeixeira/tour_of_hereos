@@ -1,0 +1,16 @@
+mat-table {
+  margin: 30px auto !important;
+}
+
+.mat-row:hover {
+  cursor: pointer;
+  background-color: #7b1fa2;
+}
+
+.message-card {
+  height: min-content;
+  width: 700px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 10px;
+}
