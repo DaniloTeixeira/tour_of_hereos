@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './core/components/heroes';
 import { HeroDetailsComponent } from './core/components/hero-details';
 import { DashboardComponent } from './core/components/dashboard/dashboard.component';
+import { NotFoundComponent } from './core/components/not-found';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./core/material/material.module').then((m) => m.MaterialModule),
   },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

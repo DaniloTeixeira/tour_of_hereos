@@ -7,6 +7,7 @@ import { HeroesComponent } from './components/heroes';
 import { MessageComponent } from './components/message';
 import { DashboardComponent } from './components/dashboard';
 import { HeroDetailsComponent } from './components/hero-details';
+import { NotFoundComponent } from './components/not-found';
 
 const COMPONENTS = [
   HeroesComponent,
@@ -16,7 +17,7 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  declarations: [COMPONENTS],
+  declarations: [COMPONENTS, NotFoundComponent],
   imports: [CommonModule, MaterialModule, AppRoutingModule],
   exports: [MaterialModule],
 })
