@@ -8,6 +8,7 @@ import { MessageComponent } from './components/message';
 import { DashboardComponent } from './components/dashboard';
 import { HeroDetailsComponent } from './components/hero-details';
 import { NotFoundComponent } from './components/not-found';
+import { HttpClientModule } from '@angular/common/http';
 
 const COMPONENTS = [
   HeroesComponent,
@@ -19,7 +20,7 @@ const COMPONENTS = [
 @NgModule({
   declarations: [COMPONENTS, NotFoundComponent],
   imports: [CommonModule, MaterialModule, AppRoutingModule],
-  exports: [MaterialModule],
+  exports: [MaterialModule, HttpClientModule],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule?: CoreModule) {

@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HEROES } from '../../data/heroes';
+import { Observable } from 'rxjs';
 import { Hero } from '../../models/Hero';
 import { MessageService } from '../message/message.service';
 
@@ -8,19 +8,24 @@ import { MessageService } from '../message/message.service';
   providedIn: 'root',
 })
 export class HeroService {
-  constructor(private messageService: MessageService) {}
+  private readonly baseURL = 'http://localhost:3000/heroes';
+
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {}
 
   getHeroes(): Observable<Hero[]> {
-    const _heroes = of(HEROES);
-
-    return _heroes;
+    return this.http.get<Hero[]>(this.baseURL);
   }
 
   getHero(id: number): Observable<Hero> {
-    const hero = HEROES.find((hero) => hero.id === id)!;
+    const url = `${this.baseURL}/${id}`;
 
-    this.messageService.addMessage(`HeroService: fetched hero id = ${id}`);
+    return this.http.get<Hero>(url);
+  }
 
-    return of(hero);
+  private log(msg: string): void {
+    this.messageService.addMessage(`HeroService: ${msg}`);
   }
 }
