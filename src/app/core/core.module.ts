@@ -8,8 +8,9 @@ import { MessageComponent } from './components/message';
 import { DashboardComponent } from './components/dashboard';
 import { HeroDetailsComponent } from './components/hero-details';
 import { NotFoundComponent } from './components/not-found';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderComponent } from './components/loader';
+import { LoaderInterceptor } from './interceptors';
 
 const COMPONENTS = [
   HeroesComponent,
@@ -24,6 +25,13 @@ const COMPONENTS = [
   declarations: [COMPONENTS],
   imports: [CommonModule, MaterialModule, AppRoutingModule],
   exports: [MaterialModule, HttpClientModule, LoaderComponent],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: LoaderInterceptor,
+  //     multi: true,
+  //   },
+  // ],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule?: CoreModule) {
