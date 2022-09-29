@@ -4,19 +4,16 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MaterialModule } from './material/material.module';
 
 import { HeroesComponent } from './components/heroes';
-import { MessageComponent } from './components/message';
 import { DashboardComponent } from './components/dashboard';
 import { HeroDetailsComponent } from './components/hero-details';
 import { NotFoundComponent } from './components/not-found';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderComponent } from './components/loader';
-import { LoaderInterceptor } from './interceptors';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const COMPONENTS = [
   HeroesComponent,
-  MessageComponent,
   DashboardComponent,
   HeroDetailsComponent,
   NotFoundComponent,
@@ -25,14 +22,14 @@ const COMPONENTS = [
 
 @NgModule({
   declarations: [COMPONENTS],
-  imports: [CommonModule, MaterialModule, AppRoutingModule, FormsModule],
-  exports: [
+  imports: [
+    CommonModule,
     MaterialModule,
-    HttpClientModule,
-    LoaderComponent,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
   ],
+  exports: [MaterialModule, HttpClientModule, LoaderComponent],
   // providers: [
   //   {
   //     provide: HTTP_INTERCEPTORS,
