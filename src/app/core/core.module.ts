@@ -9,18 +9,21 @@ import { DashboardComponent } from './components/dashboard';
 import { HeroDetailsComponent } from './components/hero-details';
 import { NotFoundComponent } from './components/not-found';
 import { HttpClientModule } from '@angular/common/http';
+import { LoaderComponent } from './components/loader';
 
 const COMPONENTS = [
   HeroesComponent,
   MessageComponent,
   DashboardComponent,
   HeroDetailsComponent,
+  NotFoundComponent,
+  LoaderComponent,
 ];
 
 @NgModule({
-  declarations: [COMPONENTS, NotFoundComponent],
+  declarations: [COMPONENTS],
   imports: [CommonModule, MaterialModule, AppRoutingModule],
-  exports: [MaterialModule, HttpClientModule],
+  exports: [MaterialModule, HttpClientModule, LoaderComponent],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule?: CoreModule) {
