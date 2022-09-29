@@ -31,4 +31,10 @@ export class HeroService {
 
     return this.http.put<Hero>(url, payload);
   }
+
+  delete(id: number): Observable<void> {
+    const url = `${this.baseURL}/${id}`;
+
+    return this.http.delete<void>(url);
+  }
 }

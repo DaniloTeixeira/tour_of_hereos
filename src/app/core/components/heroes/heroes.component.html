@@ -10,19 +10,40 @@
   >
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
+      <mat-cell *matCellDef="let hero"> {{ hero.id }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+      <mat-cell *matCellDef="let hero"> {{ hero.name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
+      <mat-cell *matCellDef="let hero">
+        <button
+          class="me-3"
+          mat-icon-button
+          mat-ToolTip="Alterar"
+          style="color: rgb(48, 113, 187)"
+          [routerLink]="['/hero', hero.id]"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          mat-ToolTip="Excluir"
+          style="color: rgb(187, 76, 48)"
+          type="button"
+          (click)="delete(hero.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row
-      *matRowDef="let row; columns: displayedColumns"
-      [routerLink]="['/hero', row.id]"
-    ></mat-row>
+    <mat-row *matRowDef="let hero; columns: displayedColumns"></mat-row>
   </mat-table>
 
   <!-- <mat-card class="message-card mat-elevation-z8">
