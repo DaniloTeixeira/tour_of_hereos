@@ -11,6 +11,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderComponent } from './components/loader';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpInterceptor } from './interceptors/http-error';
+import { LoaderInterceptor } from './interceptors/loader';
 
 const COMPONENTS = [
   HeroesComponent,
@@ -29,14 +31,19 @@ const COMPONENTS = [
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [MaterialModule, HttpClientModule, LoaderComponent],
-  // providers: [
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: LoaderInterceptor,
-  //     multi: true,
-  //   },
-  // ],
+  exports: [HttpClientModule, LoaderComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptor,
+      multi: true,
+    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: LoaderInterceptor,
+    //   multi: true,
+    // },
+  ],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule?: CoreModule) {

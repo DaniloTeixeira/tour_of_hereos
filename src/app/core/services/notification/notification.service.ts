@@ -9,7 +9,7 @@ export class NotificationService {
 
   error(msg: string): void {
     this.matSnackBar.open(`${msg}`, 'ENTENDI', {
-      duration: 3000,
+      duration: 5000,
       horizontalPosition: 'right',
       verticalPosition: 'top',
       panelClass: ['snack-error'],
@@ -18,7 +18,7 @@ export class NotificationService {
 
   success(msg: string): void {
     this.matSnackBar.open(`${msg}`, 'OK', {
-      duration: 3000,
+      duration: 5000,
       horizontalPosition: 'right',
       verticalPosition: 'top',
       panelClass: ['snack-success'],
