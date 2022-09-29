@@ -11,6 +11,8 @@ import { NotFoundComponent } from './components/not-found';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderComponent } from './components/loader';
 import { LoaderInterceptor } from './interceptors';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const COMPONENTS = [
   HeroesComponent,
@@ -23,8 +25,14 @@ const COMPONENTS = [
 
 @NgModule({
   declarations: [COMPONENTS],
-  imports: [CommonModule, MaterialModule, AppRoutingModule],
-  exports: [MaterialModule, HttpClientModule, LoaderComponent],
+  imports: [CommonModule, MaterialModule, AppRoutingModule, FormsModule],
+  exports: [
+    MaterialModule,
+    HttpClientModule,
+    LoaderComponent,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   // providers: [
   //   {
   //     provide: HTTP_INTERCEPTORS,

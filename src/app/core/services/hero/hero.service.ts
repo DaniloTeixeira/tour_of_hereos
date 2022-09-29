@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Hero } from '../../models/Hero';
 import { MessageService } from '../message/message.service';
 
@@ -15,14 +16,24 @@ export class HeroService {
     private messageService: MessageService
   ) {}
 
-  getHeroes(): Observable<Hero[]> {
+  getAll(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.baseURL);
   }
 
-  getHero(id: number): Observable<Hero> {
+  getById(id: number): Observable<Hero> {
     const url = `${this.baseURL}/${id}`;
 
     return this.http.get<Hero>(url);
+  }
+
+  create(payload: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.baseURL, payload);
+  }
+
+  update(payload: Hero, id: number): Observable<Hero> {
+    const url = `${this.baseURL}/${id}`;
+
+    return this.http.put<Hero>(url, payload);
   }
 
   private log(msg: string): void {

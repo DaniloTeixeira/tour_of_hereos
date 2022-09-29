@@ -13,6 +13,7 @@ const routes: Routes = [
     redirectTo: 'heroes',
   },
   { path: 'hero/:id', component: HeroDetailsComponent },
+  { path: 'hero/new', component: HeroDetailsComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'dashboard', component: DashboardComponent },
 
