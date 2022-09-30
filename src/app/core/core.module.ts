@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpInterceptor } from './interceptors/http-error';
 import { LoaderInterceptor } from './interceptors/loader';
 import { ConfirmComponent } from './components/confirm';
+import { SearchComponent } from './components/search';
 
 const COMPONENTS = [
   HeroesComponent,
@@ -25,7 +26,7 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  declarations: [COMPONENTS],
+  declarations: [COMPONENTS, SearchComponent],
   imports: [
     CommonModule,
     MaterialModule,

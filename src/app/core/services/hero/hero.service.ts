@@ -22,6 +22,12 @@ export class HeroService {
     return this.http.get<Hero>(url);
   }
 
+  search(query: string): Observable<Hero[]> {
+    const url = `${this.baseURL}?name=${query}`;
+
+    return this.http.get<Hero[]>(url);
+  }
+
   create(payload: CreateHeroPayload): Observable<Hero> {
     return this.http.post<Hero>(this.baseURL, payload);
   }

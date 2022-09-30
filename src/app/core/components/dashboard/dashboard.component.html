@@ -1,13 +1,20 @@
-<div class="m-5">
-  <h2 class="ms-2">Dashboard</h2>
+<div class="dashboard-container">
+  <div>
+    <h2 class="ms-2 my-4">Dashboard</h2>
 
-  <mat-card
-    class="m-2"
-    color="accent"
-    style="width: 400px; cursor: pointer"
-    *ngFor="let hero of heroes"
-    [routerLink]="['/hero', hero.id]"
-  >
-    <mat-card-title>{{ hero.name }}</mat-card-title>
-  </mat-card>
+    <mat-card
+      class="m-2"
+      color="accent"
+      style="width: 400px; cursor: pointer"
+      *ngFor="let hero of heroes"
+      [routerLink]="['/hero', hero.id]"
+    >
+      <mat-card-title>{{ hero.name }}</mat-card-title>
+    </mat-card>
+  </div>
+  <app-search
+    [label]="label"
+    (selectedHero)="onSelected($event)"
+    *ngIf="label"
+  ></app-search>
 </div>
