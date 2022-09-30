@@ -20,3 +20,7 @@ body {
   color: #fff;
   background: #1d8f69;
 }
+
+div > mat-dialog-container {
+  border-radius: 10px !important;
+}

@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpInterceptor } from './interceptors/http-error';
 import { LoaderInterceptor } from './interceptors/loader';
+import { ConfirmComponent } from './components/confirm';
 
 const COMPONENTS = [
   HeroesComponent,
@@ -20,6 +21,7 @@ const COMPONENTS = [
   HeroDetailsComponent,
   NotFoundComponent,
   LoaderComponent,
+  ConfirmComponent,
 ];
 
 @NgModule({

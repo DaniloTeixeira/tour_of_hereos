@@ -1,0 +1,18 @@
+<div>
+  <h6 color="primary" class="text-center my-4">
+    {{ data.content }}
+  </h6>
+  <mat-dialog-actions class="d-flex justify-content-between">
+    <button class="me-5" mat-stroked-button [mat-dialog-close]="false">
+      {{ data.cancelText }}
+    </button>
+    <button
+      class="ms-5"
+      mat-raised-button
+      style="background: rgb(187, 76, 48)"
+      [mat-dialog-close]="true"
+    >
+      {{ data.confirmText }}
+    </button>
+  </mat-dialog-actions>
+</div>

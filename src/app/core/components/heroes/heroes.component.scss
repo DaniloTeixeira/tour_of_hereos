@@ -16,3 +16,11 @@ mat-table {
   padding: 30px;
   border-radius: 10px;
 }
+
+.mat-column-id {
+  max-width: 100px;
+}
+
+.mat-column-actions {
+  justify-content: flex-end;
+}

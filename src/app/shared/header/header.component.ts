@@ -10,14 +10,9 @@ export class HeaderComponent {
   title = 'Tour Of Heroes';
   menuItems: MenuItem[] = [
     {
-      icon: 'dashboard',
+      icon: 'group',
       routerLink: '/dashboard',
       toolTipText: 'Dashboard',
-    },
-    {
-      icon: 'sports_martial_arts',
-      routerLink: '/',
-      toolTipText: 'Heroes',
     },
   ];
 }
