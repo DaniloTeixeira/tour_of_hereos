@@ -1,54 +1,58 @@
-<div class="heroes-container">
-  <button mat-fab color="primary" class="mt-4" routerLink="/hero/new">
-    <mat-icon>add</mat-icon>
-  </button>
+<div class="heroes-container my-4">
+  <div>
+    <div class="row d-flex justify-content-center">
+      <button mat-fab color="primary" class="mt-4" routerLink="/hero/new">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
 
-  <mat-table
-    [dataSource]="heroes"
-    class="mat-elevation-z8"
-    style="margin: 20px; width: 700px"
-  >
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
-      <mat-cell *matCellDef="let hero">
-        {{ hero.id }}
-      </mat-cell>
-    </ng-container>
+    <mat-table
+      [dataSource]="heroes"
+      class="mat-elevation-z8"
+      style="margin: 20px; width: 700px"
+    >
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+        <mat-cell *matCellDef="let hero">
+          {{ hero.id }}
+        </mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-      <mat-cell *matCellDef="let hero"> {{ hero.name }} </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+        <mat-cell *matCellDef="let hero"> {{ hero.name }} </mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="actions">
-      <mat-header-cell class="me-5" *matHeaderCellDef> Ações </mat-header-cell>
-      <mat-cell *matCellDef="let hero">
-        <button
-          class="me-2"
-          mat-icon-button
-          mat-ToolTip="Alterar"
-          style="color: rgb(48, 113, 187)"
-          [routerLink]="['/hero', hero.id]"
-        >
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button
-          mat-icon-button
-          mat-ToolTip="Excluir"
-          style="color: rgb(187, 76, 48)"
-          type="button"
-          (click)="openDialog(hero)"
-        >
-          <mat-icon>delete</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell class="me-5" *matHeaderCellDef>
+          Ações
+        </mat-header-cell>
+        <mat-cell *matCellDef="let hero">
+          <button
+            class="me-2"
+            mat-icon-button
+            mat-ToolTip="Alterar"
+            style="color: rgb(48, 113, 187)"
+            [routerLink]="['/hero', hero.id]"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            mat-ToolTip="Excluir"
+            style="color: rgb(187, 76, 48)"
+            type="button"
+            (click)="openDialog(hero)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let hero; columns: displayedColumns"></mat-row>
-  </mat-table>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let hero; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
 
-  <!-- <mat-card class="message-card mat-elevation-z8">
-    <app-message></app-message>
-  </mat-card> -->
+  <app-search label="Nome do Hero" (selected)="onSelected($event)"></app-search>
 </div>

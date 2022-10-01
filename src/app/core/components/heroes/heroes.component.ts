@@ -60,6 +60,10 @@ export class HeroesComponent implements OnInit, OnDestroy {
       });
   }
 
+  onSelected(hero: Event): void {
+    console.log(hero);
+  }
+
   private getHeroes(): void {
     this.loader.show('Carregando Heroes...');
 

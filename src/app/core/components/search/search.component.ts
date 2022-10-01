@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable, Subject } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Hero } from '../../models/Hero';
 import { HeroService } from '../../services/hero';
 
@@ -52,6 +52,8 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   private searchOnType(): void {
     this.heroes$ = this.searchQuery$.pipe(
+      debounceTime(700),
+      distinctUntilChanged(),
       switchMap((query) => this.heroService.search(query))
     );
   }
