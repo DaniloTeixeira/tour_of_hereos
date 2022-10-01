@@ -15,6 +15,7 @@ import { HttpInterceptor } from './interceptors/http-error';
 import { LoaderInterceptor } from './interceptors/loader';
 import { ConfirmComponent } from './components/confirm';
 import { SearchComponent } from './components/search';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 const COMPONENTS = [
   HeroesComponent,
@@ -39,6 +40,11 @@ const COMPONENTS = [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
       multi: true,
     },
     // {
