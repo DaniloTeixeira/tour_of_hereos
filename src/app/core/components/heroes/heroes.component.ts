@@ -20,6 +20,8 @@ export class HeroesComponent implements OnInit, OnDestroy {
 
   destroyed$ = new Subject<void>();
 
+  loaded = false;
+
   constructor(
     private dialog: MatDialog,
     private loader: LoaderService,
@@ -71,6 +73,7 @@ export class HeroesComponent implements OnInit, OnDestroy {
       .getAll()
       .subscribe((heroes) => {
         this.heroes = heroes;
+        this.loaded = true;
       })
       .add(() => this.loader.hide());
   }

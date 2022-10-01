@@ -25,3 +25,9 @@ div > mat-dialog-container {
   border-radius: 10px !important;
   background: linear-gradient(45deg, #2c2c2c, transparent) !important;
 }
+
+td.mat-cell {
+  text-align: center;
+  vertical-align: middle;
+  width: 100vw;
+}

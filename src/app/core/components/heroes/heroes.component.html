@@ -51,6 +51,17 @@
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let hero; columns: displayedColumns"></mat-row>
+
+      <ng-container *ngIf="loaded">
+        <tr class="mat-row" *matNoDataRow>
+          <td
+            class="mat-cell text-muted col-12"
+            [attr.colSpan]="displayedColumns.length"
+          >
+            Nenhum Hero encontrado
+          </td>
+        </tr>
+      </ng-container>
     </mat-table>
   </div>
 
