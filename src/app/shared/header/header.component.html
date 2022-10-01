@@ -1,16 +1,24 @@
-<mat-toolbar color="primary" class="d-flex justify-content-between">
+<mat-toolbar
+  color="primary"
+  class="d-flex justify-content-between"
+  *ngIf="authService.isLoggedIn$ | async"
+>
   <a routerLink="/">
     {{ title | uppercase }}
   </a>
   <div class="d-flex">
-    <div *ngFor="let item of menuItems" class="mx-2">
-      <a
-        aria-label="item.toolTipText"
-        [matTooltip]="item.toolTipText"
-        [routerLink]="item.routerLink"
+    <div class="mx-2">
+      <button mat-icon-button routerLink="/dashboard" matTooltip="Dashboard">
+        <mat-icon>grid_view</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        routerLink="/login"
+        matTooltip="Sair"
+        (click)="logoutAttempt()"
       >
-        <mat-icon>{{ item.icon }}</mat-icon>
-      </a>
+        <mat-icon>logout</mat-icon>
+      </button>
     </div>
   </div>
 </mat-toolbar>

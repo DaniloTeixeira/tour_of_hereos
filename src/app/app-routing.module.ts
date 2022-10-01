@@ -5,17 +5,30 @@ import { HeroesComponent } from './core/components/heroes';
 import { HeroDetailsComponent } from './core/components/hero-details';
 import { DashboardComponent } from './core/components/dashboard/dashboard.component';
 import { NotFoundComponent } from './core/components/not-found';
+import { AuthGuard } from './auth/guards';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'heroes',
+    component: HeroesComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'hero/:id', component: HeroDetailsComponent },
-  { path: 'hero/new', component: HeroDetailsComponent },
-  { path: 'heroes', component: HeroesComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'hero/:id',
+    component: HeroDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'hero/new',
+    component: HeroDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'heroes', component: HeroesComponent, canActivate: [AuthGuard] },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
 
   {
     path: 'shared',

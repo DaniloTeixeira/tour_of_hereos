@@ -1,0 +1,14 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+mat-card {
+  width: 350px;
+}
+
+mat-form-field {
+  padding: 5px;
+}

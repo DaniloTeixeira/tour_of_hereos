@@ -14,8 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpInterceptor } from './interceptors/http-error';
 import { LoaderInterceptor } from './interceptors/loader';
 import { ConfirmComponent } from './components/confirm';
-import { SearchComponent } from './components/search';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { SearchComponent } from './components/search';
 
 const COMPONENTS = [
   HeroesComponent,
@@ -24,10 +24,11 @@ const COMPONENTS = [
   NotFoundComponent,
   LoaderComponent,
   ConfirmComponent,
+  SearchComponent,
 ];
 
 @NgModule({
-  declarations: [COMPONENTS, SearchComponent],
+  declarations: [COMPONENTS],
   imports: [
     CommonModule,
     MaterialModule,

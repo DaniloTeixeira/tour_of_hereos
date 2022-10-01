@@ -1,6 +1,13 @@
-a,
-.icon {
-  cursor: pointer;
-  color: white;
+button {
+  background: transparent;
+  border: none;
+}
+
+mat-icon {
+  color: #fff;
+}
+
+a {
   text-decoration: none;
+  color: #fff;
 }
