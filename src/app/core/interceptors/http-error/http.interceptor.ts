@@ -23,6 +23,8 @@ export class HttpInterceptor implements HttpInterceptor {
 
         if (e.error instanceof ErrorEvent) {
           errorMsg = `Erro: ${e.error.message}`;
+        } else if (Array.isArray(e.error) && e.error.length) {
+          errorMsg = `Error: ${e.error[0]}`;
         } else {
           errorMsg = `Código do Erro: ${e.status}, Mensagem: ${e.message}`;
         }
